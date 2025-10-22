@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matěj Skořepa – Galerie</title>
+  <meta name="description" content="Osobní galerie prací – Matěj Skořepa" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent:#60a5fa;
+      --ring:0 0 0 3px rgb(96 165 250 / .35);
+      --radius:16px;
+      --shadow:0 10px 30px rgb(0 0 0 / .35);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 800px at 10% -20%, #0d1b32 0%, var(--bg) 40%),
+                  radial-gradient(1000px 700px at 120% 20%, #10203d 0%, var(--bg) 45%), var(--bg);
+      color:var(--text); line-height:1.5;
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      background:linear-gradient(180deg, rgba(11,18,32,.95), rgba(11,18,32,.75));
+      backdrop-filter: saturate(1.1) blur(6px);
+      border-bottom:1px solid rgb(255 255 255 / .06);
+    }
+    .container{max-width:1200px; margin-inline:auto; padding:18px clamp(16px, 3vw, 28px);} 
+    .brand{display:flex; gap:14px; align-items:center;}
+    .brand .avatar{width:48px; height:48px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow);}
+    .brand h1{font-size:clamp(18px, 2.4vw, 24px); margin:0; letter-spacing:.4px;}
+    .brand p{margin:0; color:var(--muted); font-size:14px;}
+    .pill{margin-left:auto; padding:8px 12px; border-radius:999px; background:#0b1325; border:1px solid rgb(255 255 255 / .07); color:var(--muted); font-size:13px}
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+      gap:20px;
+      padding-block:22px 48px;
+    }
+    .card{
+      position:relative; overflow:hidden; border-radius:var(--radius);
+      background:var(--panel); box-shadow:var(--shadow);
+    }
+    /* VĚTŠÍ NÁHLEDY + ořez bez deformace */
+    .card img{
+      display:block;
+      width:100%;
+      height:420px;          /* >>> zvětšení náhledu <<< */
+      object-fit:cover;
+      object-position:center;
+      transition:transform .45s ease;
+      background:#0a1020;
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+    .card:hover img{ transform:scale(1.04); }
+
+    /* skrytý klikací overlay pro otevření lightboxu */
+    .card button{all:unset; position:absolute; inset:0; cursor:zoom-in}
+
+    /* LIGHTBOX */
+    dialog#lightbox{border:none; padding:0; background:transparent; width:min(96vw, 1400px);} 
+    .backdrop{position:fixed; inset:0; background:rgba(0,0,0,.66);}
+    .stage{position:relative; display:flex; align-items:center; justify-content:center;}
+    .stage img{max-width:96vw; max-height:86vh; border-radius:18px; box-shadow:var(--shadow);}
+    .controls{position:fixed; inset:auto 0 24px 0; display:flex; justify-content:center; gap:12px;}
+    .btn{border:none; padding:10px 14px; border-radius:12px; background:#0b1325; color:#e5e7eb; cursor:pointer; font-size:14px; border:1px solid rgb(255 255 255 / .08);} 
+    .btn:focus{outline:var(--ring);} 
+
+    footer{border-top:1px solid rgb(255 255 255 / .06); color:var(--muted);} 
+    footer .container{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .credits{font-size:13px}
+
+    /* Small tweaks */
+    @media (max-width:640px){
+      .card img{height:280px;}   /* menší výška na mobilu */
+      .pill{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex; align-items:center; gap:14px;">
+      <div class="brand">
+        <img class="avatar" src="images/profile.jpg" alt="Matěj Skořepa" onerror="this.style.display='none'"/>
+        <div>
+          <h1>Matěj Skořepa</h1>
+          <p>Grafika • DTP • 3D vizualizace</p>
+        </div>
+      </div>
+      <span class="pill">Galerie prací</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Obrázky přidej do /images a duplikuj karty -->
+    <section class="gallery" id="gallery" aria-label="Galerie obrázků">
+      <figure class="card">
+        <img loading="lazy" src="images/01.jpg" alt="Náhled práce 01" />
+        <button aria-label="Zvětšit obrázek" data-full="images/01.jpg"></button>
+      </figure>
+
+      <figure class="card">
+        <img loading="lazy" src="images/02.jpg" alt="Náhled práce 02" />
+        <button aria-label="Zvětšit obrázek" data-full="images/02.jpg"></button>
+      </figure>
+
+      <figure class="card">
+        <img loading="lazy" src="images/03.jpg" alt="Náhled práce 03" />
+        <button aria-label="Zvětšit obrázek" data-full="images/03.jpg"></button>
+      </figure>
+
+ 	<figure class="card">
+         <img loading="lazy" src="images/04.jpg" alt="Náhled práce 04" />
+         <button aria-label="Zvětšit obrázek" data-full="images/04.jpg"></button>
+      </figure>
+	
+	<figure class="card">
+          <img loading="lazy" src="images/05.jpg" alt="Náhled práce 05" />
+          <button aria-label="Zvětšit obrázek" data-full="images/05.jpg"></button>
+      </figure>
+
+
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="backdrop" hidden id="backdrop" aria-hidden="true"></div>
+  <dialog id="lightbox" aria-label="Zvětšený obrázek">
+    <div class="stage">
+      <img id="lightImage" alt="Zvětšený náhled" />
+    </div>
+    <div class="controls">
+      <button class="btn" id="prevBtn" aria-label="Předchozí (←)">← Předchozí</button>
+      <button class="btn" id="closeBtn" aria-label="Zavřít (Esc)">Zavřít</button>
+      <button class="btn" id="nextBtn" aria-label="Další (→)">Další →</button>
+    </div>
+  </dialog>
+
+  <footer>
+    <div class="container">
+      <p class="credits">© <span id="year"></span> Matěj Skořepa</p>
+      <p class="credits">Kontakt: <a href="mailto:skorematje@seznam.cz" style="color:var(--accent); text-decoration:none">skorematje@seznam.cz</a> · <a href="tel:+420728203901" style="color:var(--accent); text-decoration:none">+420 728 203 901</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const d = document; const Q = (s, r=d) => r.querySelector(s); const QA=(s,r=d)=>[...r.querySelectorAll(s)];
+    Q('#year').textContent = new Date().getFullYear();
+
+    // Lightbox – jednoduchý viewer
+    const dialog = Q('#lightbox');
+    const backdrop = Q('#backdrop');
+    const lightImg = Q('#lightImage');
+    const cards = QA('.gallery .card');
+    let index = -1;
+
+    function openAt(i){
+      index = i; const fig = cards[index];
+      const full = Q('button', fig).dataset.full || Q('img', fig).src;
+      lightImg.src = full; backdrop.hidden = false; backdrop.ariaHidden = "false";
+      if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
+      setTimeout(()=>Q('#closeBtn').focus(),0);
+    }
+    function close(){
+      if(dialog.open) dialog.close(); else dialog.removeAttribute('open');
+      backdrop.hidden = true; backdrop.ariaHidden = "true"; lightImg.src = '';
+    }
+    function next(){ openAt((index+1) % cards.length); }
+    function prev(){ openAt((index-1+cards.length) % cards.length); }
+
+    cards.forEach((c,i)=> Q('button',c).addEventListener('click',()=>openAt(i)) );
+    Q('#closeBtn').addEventListener('click', close);
+    Q('#nextBtn').addEventListener('click', next);
+    Q('#prevBtn').addEventListener('click', prev);
+    backdrop.addEventListener('click', close);
+
+    d.addEventListener('keydown', e=>{
+      if(!dialog.open) return;
+      if(e.key==='Escape') close();
+      if(e.key==='ArrowRight') next();
+      if(e.key==='ArrowLeft') prev();
+    });
+  </script>
+</body>
+</html>

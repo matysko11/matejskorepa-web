@@ -2,196 +2,247 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matěj Skořepa – Galerie</title>
-  <meta name="description" content="Osobní galerie prací – Matěj Skořepa" />
-  <meta name="theme-color" content="#0f172a" />
-  <style>
-    :root{
-      --bg:#0b1220;
-      --panel:#0f172a;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-      --accent:#60a5fa;
-      --ring:0 0 0 3px rgb(96 165 250 / .35);
-      --radius:16px;
-      --shadow:0 10px 30px rgb(0 0 0 / .35);
-    }
-    html,body{height:100%;}
-    body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
-      background: radial-gradient(1200px 800px at 10% -20%, #0d1b32 0%, var(--bg) 40%),
-                  radial-gradient(1000px 700px at 120% 20%, #10203d 0%, var(--bg) 45%), var(--bg);
-      color:var(--text); line-height:1.5;
-    }
-    header{
-      position:sticky; top:0; z-index:10;
-      background:linear-gradient(180deg, rgba(11,18,32,.95), rgba(11,18,32,.75));
-      backdrop-filter: saturate(1.1) blur(6px);
-      border-bottom:1px solid rgb(255 255 255 / .06);
-    }
-    .container{max-width:1200px; margin-inline:auto; padding:18px clamp(16px, 3vw, 28px);} 
-    .brand{display:flex; gap:14px; align-items:center;}
-    .brand .avatar{width:48px; height:48px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow);}
-    .brand h1{font-size:clamp(18px, 2.4vw, 24px); margin:0; letter-spacing:.4px;}
-    .brand p{margin:0; color:var(--muted); font-size:14px;}
-    .pill{margin-left:auto; padding:8px 12px; border-radius:999px; background:#0b1325; border:1px solid rgb(255 255 255 / .07); color:var(--muted); font-size:13px}
-
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
-      gap:20px;
-      padding-block:22px 48px;
-    }
-    .card{
-      position:relative; overflow:hidden; border-radius:var(--radius);
-      background:var(--panel); box-shadow:var(--shadow);
-    }
-    /* VĚTŠÍ NÁHLEDY + ořez bez deformace */
-    .card img{
-      display:block;
-      width:100%;
-      height:420px;          /* >>> zvětšení náhledu <<< */
-      object-fit:cover;
-      object-position:center;
-      transition:transform .45s ease;
-      background:#0a1020;
-      border-bottom-left-radius:0;
-      border-bottom-right-radius:0;
-    }
-    .card:hover img{ transform:scale(1.04); }
-
-    /* skrytý klikací overlay pro otevření lightboxu */
-    .card button{all:unset; position:absolute; inset:0; cursor:zoom-in}
-
-    /* LIGHTBOX */
-    dialog#lightbox{border:none; padding:0; background:transparent; width:min(96vw, 1400px);} 
-    .backdrop{position:fixed; inset:0; background:rgba(0,0,0,.66);}
-    .stage{position:relative; display:flex; align-items:center; justify-content:center;}
-    .stage img{max-width:96vw; max-height:86vh; border-radius:18px; box-shadow:var(--shadow);}
-    .controls{position:fixed; inset:auto 0 24px 0; display:flex; justify-content:center; gap:12px;}
-    .btn{border:none; padding:10px 14px; border-radius:12px; background:#0b1325; color:#e5e7eb; cursor:pointer; font-size:14px; border:1px solid rgb(255 255 255 / .08);} 
-    .btn:focus{outline:var(--ring);} 
-
-    footer{border-top:1px solid rgb(255 255 255 / .06); color:var(--muted);} 
-    footer .container{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between}
-    .credits{font-size:13px}
-
-    /* Small tweaks */
-    @media (max-width:640px){
-      .card img{height:280px;}   /* menší výška na mobilu */
-      .pill{display:none}
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matěj Skořepa | Portfolio</title>
+  <meta name="description" content="Portfolio a ukázky prací – Matěj Skořepa. Grafika, DTP, obaly, vizualizace a produktové návrhy." />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container" style="display:flex; align-items:center; gap:14px;">
-      <div class="brand">
-        <img class="avatar" src="images/profile.jpg" alt="Matěj Skořepa" onerror="this.style.display='none'"/>
-        <div>
-          <h1>Matěj Skořepa</h1>
-          <p>Grafika • DTP • 3D vizualizace</p>
+
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="#" class="logo-block">
+        <div class="logo-avatar">
+          <img src="images/profile.jpg" alt="Matěj Skořepa" onerror="this.style.display='none'">
         </div>
-      </div>
-      <span class="pill">Galerie prací</span>
+        <div class="logo-text">
+          <span class="name">Matěj Skořepa</span>
+          <span class="role">Grafika • DTP • Produktové vizualizace</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#o-mne">O mně</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Obrázky přidej do /images a duplikuj karty -->
-    <section class="gallery" id="gallery" aria-label="Galerie obrázků">
-      <figure class="card">
-        <img loading="lazy" src="images/01.jpg" alt="Náhled práce 01" />
-        <button aria-label="Zvětšit obrázek" data-full="images/01.jpg"></button>
-      </figure>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Portfolio</p>
+          <h1>Moderní grafika, DTP a vizuální prezentace produktů</h1>
+          <p class="hero-lead">
+            Tvořím grafické návrhy, produktové vizualizace, obaly, etikety a prezentační materiály.
+            Níže najdeš výběr mých prací v přehledné galerii.
+          </p>
 
-      <figure class="card">
-        <img loading="lazy" src="images/02.jpg" alt="Náhled práce 02" />
-        <button aria-label="Zvětšit obrázek" data-full="images/02.jpg"></button>
-      </figure>
+          <div class="hero-buttons">
+            <a href="#portfolio" class="btn btn-primary">Zobrazit práce</a>
+            <a href="#kontakt" class="btn btn-secondary">Kontakt</a>
+          </div>
+        </div>
 
-      <figure class="card">
-        <img loading="lazy" src="images/03.jpg" alt="Náhled práce 03" />
-        <button aria-label="Zvětšit obrázek" data-full="images/03.jpg"></button>
-      </figure>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="mini-label">Zaměření</p>
+            <ul>
+              <li>Grafický design</li>
+              <li>DTP a tisková příprava</li>
+              <li>Obaly a etikety</li>
+              <li>Produktové vizualizace</li>
+              <li>3D prezentace pro e-shop</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
- 	<figure class="card">
-         <img loading="lazy" src="images/04.jpg" alt="Náhled práce 04" />
-         <button aria-label="Zvětšit obrázek" data-full="images/04.jpg"></button>
-      </figure>
-	
-	<figure class="card">
-          <img loading="lazy" src="images/05.jpg" alt="Náhled práce 05" />
-          <button aria-label="Zvětšit obrázek" data-full="images/05.jpg"></button>
-      </figure>
+    <section class="about section" id="o-mne">
+      <div class="container section-head">
+        <p class="section-kicker">O mně</p>
+        <h2>Portfolio zaměřené na praxi a reálné výstupy</h2>
+        <p class="section-text">
+          Věnuji se grafice, DTP a vizuálním návrhům produktů. Zaměřuji se na čistý,
+          profesionální vzhled, praktičnost pro tisk i použití na e-shopu a srozumitelnou prezentaci značky.
+        </p>
+      </div>
+    </section>
 
-		<figure class="card">
-          <img loading="lazy" src="images/06.jpg" alt="Náhled práce 06" />
-          <button aria-label="Zvětšit obrázek" data-full="images/06.jpg"></button>
-      </figure>
+    <section class="portfolio section" id="portfolio">
+      <div class="container">
+        <div class="section-head portfolio-head">
+          <div>
+            <p class="section-kicker">Ukázky prací</p>
+            <h2>Vybrané realizace</h2>
+          </div>
+          <p class="section-text portfolio-text">
+            Kliknutím na obrázek otevřeš větší náhled.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <figure class="work-card">
+            <button class="gallery-open" type="button" data-full="images/01.jpg" data-title="Ukázka práce 01">
+              <img src="images/01.jpg" alt="Ukázka práce 01" loading="lazy">
+            </button>
+            <figcaption>
+              <h3>Ukázka práce 01</h3>
+              <p>Grafický návrh / produktová prezentace</p>
+            </figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="gallery-open" type="button" data-full="images/02.jpg" data-title="Ukázka práce 02">
+              <img src="images/02.jpg" alt="Ukázka práce 02" loading="lazy">
+            </button>
+            <figcaption>
+              <h3>Ukázka práce 02</h3>
+              <p>Grafický návrh / produktová prezentace</p>
+            </figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="gallery-open" type="button" data-full="images/03.jpg" data-title="Ukázka práce 03">
+              <img src="images/03.jpg" alt="Ukázka práce 03" loading="lazy">
+            </button>
+            <figcaption>
+              <h3>Ukázka práce 03</h3>
+              <p>Grafický návrh / produktová prezentace</p>
+            </figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="gallery-open" type="button" data-full="images/04.jpg" data-title="Ukázka práce 04">
+              <img src="images/04.jpg" alt="Ukázka práce 04" loading="lazy">
+            </button>
+            <figcaption>
+              <h3>Ukázka práce 04</h3>
+              <p>Grafický návrh / produktová prezentace</p>
+            </figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="gallery-open" type="button" data-full="images/05.jpg" data-title="Ukázka práce 05">
+              <img src="images/05.jpg" alt="Ukázka práce 05" loading="lazy">
+            </button>
+            <figcaption>
+              <h3>Ukázka práce 05</h3>
+              <p>Grafický návrh / produktová prezentace</p>
+            </figcaption>
+          </figure>
+
+          <figure class="work-card">
+            <button class="gallery-open" type="button" data-full="images/06.jpg" data-title="Ukázka práce 06">
+              <img src="images/06.jpg" alt="Ukázka práce 06" loading="lazy">
+            </button>
+            <figcaption>
+              <h3>Ukázka práce 06</h3>
+              <p>Grafický návrh / produktová prezentace</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="kontakt">
+      <div class="container contact-box">
+        <div class="contact-text">
+          <p class="section-kicker">Kontakt</p>
+          <h2>Máš zájem o spolupráci?</h2>
+          <p>
+            Pokud tě moje práce zaujala, ozvi se mi e-mailem nebo telefonicky.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:skorematje@seznam.cz" class="contact-link">skorematje@seznam.cz</a>
+          <a href="tel:+420728203901" class="contact-link">+420 728 203 901</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- LIGHTBOX -->
-  <div class="backdrop" hidden id="backdrop" aria-hidden="true"></div>
-  <dialog id="lightbox" aria-label="Zvětšený obrázek">
-    <div class="stage">
-      <img id="lightImage" alt="Zvětšený náhled" />
-    </div>
-    <div class="controls">
-      <button class="btn" id="prevBtn" aria-label="Předchozí (←)">← Předchozí</button>
-      <button class="btn" id="closeBtn" aria-label="Zavřít (Esc)">Zavřít</button>
-      <button class="btn" id="nextBtn" aria-label="Další (→)">Další →</button>
-    </div>
-  </dialog>
-
-  <footer>
-    <div class="container">
-      <p class="credits">© <span id="year"></span> Matěj Skořepa</p>
-      <p class="credits">Kontakt: <a href="mailto:skorematje@seznam.cz" style="color:var(--accent); text-decoration:none">skorematje@seznam.cz</a> · <a href="tel:+420728203901" style="color:var(--accent); text-decoration:none">+420 728 203 901</a></p>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Matěj Skořepa</p>
+      <p>Portfolio / GitHub Pages</p>
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí">‹</button>
+    <img id="lightboxImage" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další">›</button>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
   <script>
-    const d = document; const Q = (s, r=d) => r.querySelector(s); const QA=(s,r=d)=>[...r.querySelectorAll(s)];
-    Q('#year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Lightbox – jednoduchý viewer
-    const dialog = Q('#lightbox');
-    const backdrop = Q('#backdrop');
-    const lightImg = Q('#lightImage');
-    const cards = QA('.gallery .card');
-    let index = -1;
+    const galleryButtons = Array.from(document.querySelectorAll('.gallery-open'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
 
-    function openAt(i){
-      index = i; const fig = cards[index];
-      const full = Q('button', fig).dataset.full || Q('img', fig).src;
-      lightImg.src = full; backdrop.hidden = false; backdrop.ariaHidden = "false";
-      if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
-      setTimeout(()=>Q('#closeBtn').focus(),0);
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const btn = galleryButtons[index];
+      const imageSrc = btn.dataset.full;
+      const imageTitle = btn.dataset.title || '';
+
+      lightboxImage.src = imageSrc;
+      lightboxImage.alt = imageTitle;
+      lightboxCaption.textContent = imageTitle;
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
     }
-    function close(){
-      if(dialog.open) dialog.close(); else dialog.removeAttribute('open');
-      backdrop.hidden = true; backdrop.ariaHidden = "true"; lightImg.src = '';
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
     }
-    function next(){ openAt((index+1) % cards.length); }
-    function prev(){ openAt((index-1+cards.length) % cards.length); }
 
-    cards.forEach((c,i)=> Q('button',c).addEventListener('click',()=>openAt(i)) );
-    Q('#closeBtn').addEventListener('click', close);
-    Q('#nextBtn').addEventListener('click', next);
-    Q('#prevBtn').addEventListener('click', prev);
-    backdrop.addEventListener('click', close);
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryButtons.length;
+      openLightbox(currentIndex);
+    }
 
-    d.addEventListener('keydown', e=>{
-      if(!dialog.open) return;
-      if(e.key==='Escape') close();
-      if(e.key==='ArrowRight') next();
-      if(e.key==='ArrowLeft') prev();
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + galleryButtons.length) % galleryButtons.length;
+      openLightbox(currentIndex);
+    }
+
+    galleryButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxNext.addEventListener('click', showNext);
+    lightboxPrev.addEventListener('click', showPrev);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
     });
   </script>
 </body>
 </html>
-

@@ -4,164 +4,315 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matěj Skořepa | Portfolio</title>
-  <meta name="description" content="Portfolio a ukázky prací – Matěj Skořepa. Grafika, DTP, obaly, vizualizace a produktové návrhy." />
-  <meta name="theme-color" content="#0b1220" />
-  <link rel="stylesheet" href="/matejskorepa-web/style.css" />
+  <meta
+    name="description"
+    content="Portfolio Matěje Skořepy – grafika, DTP, tisková příprava, produktové vizualizace a digitální tvorba."
+  />
+  <meta name="theme-color" content="#081120" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
-
   <header class="site-header">
     <div class="container header-wrap">
-      <a href="#" class="logo-block">
-        <div class="logo-avatar">
-          <img src="images/profile.jpg" alt="Matěj Skořepa" onerror="this.style.display='none'">
+      <a href="#top" class="brand">
+        <div class="brand-avatar">
+          <img src="images/profile.jpg" alt="Matěj Skořepa" onerror="this.style.display='none'; this.parentElement.classList.add('avatar-hidden');">
         </div>
-        <div class="logo-text">
-          <span class="name">Matěj Skořepa</span>
-          <span class="role">Grafika • DTP • Produktové vizualizace</span>
+        <div class="brand-text">
+          <strong>Matěj Skořepa</strong>
+          <span>Grafika • DTP • Produktové vizualizace</span>
         </div>
       </a>
 
-      <nav class="main-nav">
+      <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
         <a href="#o-mne">O mně</a>
+        <a href="#sluzby">Co dělám</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#zkusenosti">Zkušenosti</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-text">
+        <div class="hero-content">
           <p class="eyebrow">Portfolio</p>
-          <h1>Moderní grafika, DTP a vizuální prezentace produktů</h1>
-          <p class="hero-lead">
-            Tvořím grafické návrhy, produktové vizualizace, obaly, etikety a prezentační materiály.
-            Níže najdeš výběr mých prací v přehledné galerii.
+          <h1>Grafika, DTP a produktové vizualizace s důrazem na čistý výsledek</h1>
+          <p class="hero-text">
+            Jsem Matěj Skořepa a věnuji se grafice, tiskové přípravě, produktovým
+            vizualizacím a práci s digitálními podklady. Ve své práci propojuji
+            kreativní přístup, technickou přesnost a zkušenosti z reálné praxe.
           </p>
 
-          <div class="hero-buttons">
-            <a href="#portfolio" class="btn btn-primary">Zobrazit práce</a>
-            <a href="#kontakt" class="btn btn-secondary">Kontakt</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#portfolio">Zobrazit práce</a>
+            <a class="btn btn-secondary" href="#kontakt">Kontakt</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <p class="mini-label">Zaměření</p>
-            <ul>
-              <li>Grafický design</li>
-              <li>DTP a tisková příprava</li>
-              <li>Obaly a etikety</li>
-              <li>Produktové vizualizace</li>
-              <li>3D prezentace pro e-shop</li>
-            </ul>
-          </div>
-        </div>
+        <aside class="hero-panel">
+          <p class="panel-kicker">Zaměření</p>
+          <ul class="hero-list">
+            <li>Grafický design a DTP</li>
+            <li>Tvorba etiket a obalů</li>
+            <li>Příprava tiskových dat</li>
+            <li>Produktové vizualizace pro e-shopy</li>
+            <li>3D modelování a digitální prezentace</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <section class="about section" id="o-mne">
-      <div class="container section-head">
+    <section class="section" id="o-mne">
+      <div class="container narrow">
         <p class="section-kicker">O mně</p>
-        <h2>Portfolio zaměřené na praxi a reálné výstupy</h2>
+        <h2>Praktická grafika postavená na zkušenostech z reálné výroby i online prostředí</h2>
         <p class="section-text">
-          Věnuji se grafice, DTP a vizuálním návrhům produktů. Zaměřuji se na čistý,
-          profesionální vzhled, praktičnost pro tisk i použití na e-shopu a srozumitelnou prezentaci značky.
+          Jsem pečlivý a zodpovědný člověk se zájmem o práci na počítači,
+          moderní technologie a vizuální tvorbu. Dlouhodobě se věnuji grafice,
+          tiskové přípravě, úpravě podkladů a produktové prezentaci. Hledám
+          řešení, která dávají smysl jak vizuálně, tak prakticky při reálném použití.
         </p>
       </div>
     </section>
 
-    <section class="portfolio section" id="portfolio">
+    <section class="section" id="sluzby">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Co dělám</p>
+            <h2>Oblasti, kterým se věnuji</h2>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="info-card">
+            <h3>Grafika a DTP</h3>
+            <p>
+              Návrhy obalů, etiket, tiskovin a úprava grafických podkladů
+              pro použití v tisku i digitálním prostředí.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>Tisková příprava</h3>
+            <p>
+              Příprava tiskových dat, kontrola podkladů a jejich doladění tak,
+              aby odpovídaly technickým i vizuálním požadavkům.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>Produktové vizualizace</h3>
+            <p>
+              Tvorba grafických modelů a vizualizací produktů zejména
+              pro e-shopy a prezentační použití.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>3D a digitální tvorba</h3>
+            <p>
+              Blender, práce s digitální prezentací a základy webové tvorby
+              pomocí HTML, CSS a JavaScriptu.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contrast" id="portfolio">
       <div class="container">
         <div class="section-head portfolio-head">
           <div>
-            <p class="section-kicker">Ukázky prací</p>
-            <h2>Vybrané realizace</h2>
+            <p class="section-kicker">Portfolio</p>
+            <h2>Vybrané práce</h2>
           </div>
-          <p class="section-text portfolio-text">
-            Kliknutím na obrázek otevřeš větší náhled.
-          </p>
+          <p class="section-note">Kliknutím na obrázek otevřeš větší náhled.</p>
         </div>
 
         <div class="gallery">
           <figure class="work-card">
             <button class="gallery-open" type="button" data-full="images/01.jpg" data-title="Ukázka práce 01">
-              <img src="images/01.jpg" alt="Ukázka práce 01" loading="lazy">
+              <img src="images/01.jpg" alt="Ukázka práce 01" loading="lazy" />
             </button>
             <figcaption>
-              <h3>Ukázka práce 01</h3>
-              <p>Grafický návrh / produktová prezentace</p>
+              <h3>3D / vizuální prezentace</h3>
+              <p>Ukázka digitálního zpracování a prezentační grafiky.</p>
             </figcaption>
           </figure>
 
           <figure class="work-card">
             <button class="gallery-open" type="button" data-full="images/02.jpg" data-title="Ukázka práce 02">
-              <img src="images/02.jpg" alt="Ukázka práce 02" loading="lazy">
+              <img src="images/02.jpg" alt="Ukázka práce 02" loading="lazy" />
             </button>
             <figcaption>
-              <h3>Ukázka práce 02</h3>
-              <p>Grafický návrh / produktová prezentace</p>
+              <h3>Obalový design</h3>
+              <p>Návrh produktu s důrazem na přehlednost a e-shop prezentaci.</p>
             </figcaption>
           </figure>
 
           <figure class="work-card">
             <button class="gallery-open" type="button" data-full="images/03.jpg" data-title="Ukázka práce 03">
-              <img src="images/03.jpg" alt="Ukázka práce 03" loading="lazy">
+              <img src="images/03.jpg" alt="Ukázka práce 03" loading="lazy" />
             </button>
             <figcaption>
-              <h3>Ukázka práce 03</h3>
-              <p>Grafický návrh / produktová prezentace</p>
+              <h3>Produktová vizualizace</h3>
+              <p>Čistý vizuál produktu určený pro online použití.</p>
             </figcaption>
           </figure>
 
           <figure class="work-card">
             <button class="gallery-open" type="button" data-full="images/04.jpg" data-title="Ukázka práce 04">
-              <img src="images/04.jpg" alt="Ukázka práce 04" loading="lazy">
+              <img src="images/04.jpg" alt="Ukázka práce 04" loading="lazy" />
             </button>
             <figcaption>
-              <h3>Ukázka práce 04</h3>
-              <p>Grafický návrh / produktová prezentace</p>
+              <h3>Etiketa / tiskový návrh</h3>
+              <p>Ukázka práce s kompozicí, informacemi a finálním layoutem.</p>
             </figcaption>
           </figure>
 
           <figure class="work-card">
             <button class="gallery-open" type="button" data-full="images/05.jpg" data-title="Ukázka práce 05">
-              <img src="images/05.jpg" alt="Ukázka práce 05" loading="lazy">
+              <img src="images/05.jpg" alt="Ukázka práce 05" loading="lazy" />
             </button>
             <figcaption>
-              <h3>Ukázka práce 05</h3>
-              <p>Grafický návrh / produktová prezentace</p>
+              <h3>Produktový obal</h3>
+              <p>Práce s brandingem, strukturou a praktickou prezentací produktu.</p>
             </figcaption>
           </figure>
 
           <figure class="work-card">
             <button class="gallery-open" type="button" data-full="images/06.jpg" data-title="Ukázka práce 06">
-              <img src="images/06.jpg" alt="Ukázka práce 06" loading="lazy">
+              <img src="images/06.jpg" alt="Ukázka práce 06" loading="lazy" />
             </button>
             <figcaption>
-              <h3>Ukázka práce 06</h3>
-              <p>Grafický návrh / produktová prezentace</p>
+              <h3>Retail / obalový koncept</h3>
+              <p>Návrh zaměřený na čitelnost, informace a vizuální identitu.</p>
             </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="contact section" id="kontakt">
-      <div class="container contact-box">
-        <div class="contact-text">
+    <section class="section" id="zkusenosti">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Zkušenosti</p>
+            <h2>Praxe, nástroje a pracovní přístup</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 – současnost</span>
+              <h3>Top Distribution s.r.o.</h3>
+              <p>
+                Po nástupu na manuální pozici ve skladu jsem postupně přešel do
+                grafického oddělení. Věnuji se úpravě a tvorbě etiket, přípravě
+                tiskových dat, jejich realizaci a komunikaci se zákazníky.
+              </p>
+              <p>
+                Součástí práce je také tvorba grafických modelů a produktových
+                vizualizací, především pro internetové obchody Alza.cz a Datart.cz.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2019 – 2023</span>
+              <h3>Střední škola managementu a grafiky, Český Brod-Liblice</h3>
+              <p>
+                Obor Informační technologie – počítačová grafika a webdesign.
+                Studium mi dalo základ pro grafickou tvorbu, práci s digitálními
+                podklady a orientaci ve webovém i vizuálním prostředí.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-box">
+            <h3>Grafické nástroje</h3>
+            <ul>
+              <li>Adobe Illustrator</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe InDesign</li>
+              <li>Canva</li>
+            </ul>
+          </article>
+
+          <article class="skill-box">
+            <h3>Web a digitální technologie</h3>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </article>
+
+          <article class="skill-box">
+            <h3>3D a vizualizace</h3>
+            <ul>
+              <li>Blender</li>
+              <li>Tvorba 3D modelů</li>
+            </ul>
+          </article>
+
+          <article class="skill-box">
+            <h3>Další</h3>
+            <ul>
+              <li>Microsoft Office</li>
+              <li>Komunikace se zákazníky</li>
+              <li>Příprava tiskových podkladů</li>
+              <li>Práce v týmu</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contrast" id="volny-cas">
+      <div class="container two-col">
+        <div>
+          <p class="section-kicker">Volný čas</p>
+          <h2>Aktivní přístup i mimo práci</h2>
+        </div>
+        <div>
+          <p class="section-text">
+            Mezi mé koníčky patří fotbal, sport obecně a aktivní trávení volného času.
+            Baví mě také cestování, čas s rodinou a přáteli a prostředí, kde funguje
+            dobrá komunikace a týmová spolupráce.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container contact-panel">
+        <div>
           <p class="section-kicker">Kontakt</p>
-          <h2>Máš zájem o spolupráci?</h2>
-          <p>
-            Pokud tě moje práce zaujala, ozvi se mi e-mailem nebo telefonicky.
+          <h2>Zaujala tě moje práce?</h2>
+          <p class="section-text">
+            Budu rád za pracovní příležitost, spolupráci nebo zprávu.
           </p>
         </div>
 
         <div class="contact-links">
-          <a href="mailto:skorematje@seznam.cz" class="contact-link">skorematje@seznam.cz</a>
-          <a href="tel:+420728203901" class="contact-link">+420 728 203 901</a>
+          <a href="mailto:skorematej@seznam.cz">skorematej@seznam.cz</a>
+          <a href="tel:+420728203901">+420 728 203 901</a>
+          <a href="https://matysko11.github.io/matejskorepa-web/" target="_blank" rel="noopener">matysko11.github.io/matejskorepa-web</a>
         </div>
       </div>
     </section>
@@ -174,75 +325,14 @@
     </div>
   </footer>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" hidden>
-    <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít">×</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí">‹</button>
-    <img id="lightboxImage" src="" alt="">
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další">›</button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít náhled">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí obrázek">‹</button>
+    <img id="lightboxImage" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další obrázek">›</button>
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const galleryButtons = Array.from(document.querySelectorAll('.gallery-open'));
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-
-    let currentIndex = 0;
-
-    function openLightbox(index) {
-      currentIndex = index;
-      const btn = galleryButtons[index];
-      const imageSrc = btn.dataset.full;
-      const imageTitle = btn.dataset.title || '';
-
-      lightboxImage.src = imageSrc;
-      lightboxImage.alt = imageTitle;
-      lightboxCaption.textContent = imageTitle;
-      lightbox.hidden = false;
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.hidden = true;
-      lightboxImage.src = '';
-      document.body.style.overflow = '';
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % galleryButtons.length;
-      openLightbox(currentIndex);
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + galleryButtons.length) % galleryButtons.length;
-      openLightbox(currentIndex);
-    }
-
-    galleryButtons.forEach((btn, index) => {
-      btn.addEventListener('click', () => openLightbox(index));
-    });
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxNext.addEventListener('click', showNext);
-    lightboxPrev.addEventListener('click', showPrev);
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (lightbox.hidden) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    });
-  </script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
